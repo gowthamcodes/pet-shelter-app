@@ -119,15 +119,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     }
 
     private void deleteAllPets() {
-        int rowsDeleted = getContentResolver().delete(PetEntry.CONTENT_URI, null, null);
-        if (rowsDeleted == 0) {
-            Toast.makeText(this, getString(R.string.editor_delete_pet_failed),
-                    Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this, getString(R.string.editor_delete_all_pet_successful),
-                    Toast.LENGTH_SHORT).show();
-        }
+        getContentResolver().delete(PetEntry.CONTENT_URI, null, null);
+        Toast.makeText(this, getString(R.string.editor_delete_all_pet_successful),
+                Toast.LENGTH_SHORT).show();
     }
 
     @NonNull
